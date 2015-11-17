@@ -4,6 +4,7 @@ import * as util from '../util';
 
 export interface WriteCommandArguments {
     opt? : string;
+    optValue? : string;
     bang? : boolean;
     range? : node.LineRange;
     file? : string;
@@ -27,10 +28,25 @@ export class WriteCommand implements node.CommandBase {
     }
 
     runOn(textEditor : vscode.TextEditor) : void {
-        if (this.args) {
+        if (this.args.opt) {
+            util.showError("Not implemented.");
+            return;
+        } else if (this.args.bang) {
+            util.showError("Not implemented.");
+            return;
+        } else if (this.args.file) {
+            util.showError("Not implemented.");
+            return;
+        } else if (this.args.append) {
+            util.showError("Not implemented.");
+            return;
+        } else if (this.args.cmd) {
             util.showError("Not implemented.");
             return;
         }
-        textEditor.document.save();
+        textEditor.document.save().then(
+            (_) => util.showInfo("File saved."),
+            (e) => util.showError(e)
+        );
     }
 }

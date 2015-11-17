@@ -85,4 +85,19 @@ export class Scanner {
         }
         this.ignore();
     }
+
+    expect(value : string) : void {
+        if (!this.input.substring(this.pos).startsWith(value)) {
+            throw new Error("Unexpected character.");
+        }
+        this.pos += value.length;
+    }
+
+    expectOneOf(...values : string[]) : void {
+        let match = values.filter(s => this.input.substr(this.pos).startsWith(s));
+        if (match.length !== 1) {
+            throw new Error("Unexpected character.");
+        }
+        this.pos += match[0].length;
+    }
 }
