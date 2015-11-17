@@ -2,6 +2,15 @@ import * as vscode from 'vscode';
 import * as node from './node';
 import * as util from '../util';
 
+export interface WriteCommandArguments {
+    opt? : string;
+    bang? : boolean;
+    range? : node.LineRange;
+    file? : string;
+    append? : boolean;
+    cmd? : string;
+}
+
 //
 //  Implements :write
 //  http://vimdoc.sourceforge.net/htmldoc/editing.html#:write
@@ -9,10 +18,9 @@ import * as util from '../util';
 export class WriteCommand implements node.CommandBase {
     name : string;
     shortName : string;
-    args : Object;
+    args : WriteCommandArguments;
 
-    constructor(args : Object = null) {
-        // TODO: implement other arguments.
+    constructor(args : WriteCommandArguments = {}) {
         this.name = 'write';
         this.shortName = 'w';
         this.args = args;

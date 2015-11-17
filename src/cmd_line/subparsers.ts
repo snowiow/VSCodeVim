@@ -1,4 +1,5 @@
 import * as node from "./node";
+import * as command_node from './command_node';
 
 // maps command names to parsers for said commands.
 export const commandParsers = {
@@ -6,7 +7,7 @@ export const commandParsers = {
     write: parseWriteCommandArgs
 };
 
-export function parseWriteCommandArgs(args : string = null) {
+export function parseWriteCommandArgs(args : command_node.WriteCommandArguments = {}) {
     // TODO: actually parse arguments.
-    return new node.WriteCommand(args ? args : null);
+    return new node.WriteCommand(args);
 }
