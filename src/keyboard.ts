@@ -23,8 +23,8 @@ export class KeyboardLayout {
 		switch (layout) {
 			case 'es-ES (QWERTY)':
 				return new KeyboardLayout(new KeyMapperEsEsQwerty());
-            case 'de-DE (QWERTZ)':
-                return new KeyboardLayout(new KeyMapperDeDeQwertz());
+			case 'de-DE (QWERTZ)':
+				return new KeyboardLayout(new KeyMapperDeDeQwertz());
 			default:
 				return new KeyboardLayout();
 		}
@@ -72,10 +72,10 @@ class KeyMapperDeDeQwertz implements KeyMapper {
     }
 
     get name() : string {
-         return 'de-DE (QWERTZ)';
+        return 'de-DE (QWERTZ)';
     }
 
     get(key : string) : string {
-		return this.mappings[key] || key;
-	}
+        return this.mappings[key] || key;
+    }
 }
