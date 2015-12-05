@@ -23,8 +23,8 @@ export class KeyboardLayout {
 		switch (layout) {
 			case 'es-ES (QWERTY)':
 				return new KeyboardLayout(new KeyMapperEsEsQwerty());
-            case 'de-DE (QWERTZ)':
-                return new KeyboardLayout(new KeyMapperDeDeQwertz());
+			case 'de-DE (QWERTZ)':
+				return new KeyboardLayout(new KeyMapperDeDeQwertz());
 			default:
 				return new KeyboardLayout();
 		}
