@@ -72,10 +72,10 @@ class KeyMapperDeDeQwertz implements KeyMapper {
     }
 
     get name() : string {
-         return 'de-DE (QWERTZ)';
+        return 'de-DE (QWERTZ)';
     }
 
     get(key : string) : string {
-		return this.mappings[key] || key;
-	}
+        return this.mappings[key] || key;
+    }
 }
